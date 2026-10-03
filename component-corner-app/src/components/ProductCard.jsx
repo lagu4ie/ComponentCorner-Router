@@ -1,13 +1,17 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-function ProductCard({ name, price, image, description, onAddToCart }) {
+function ProductCard({ id, name, price, image, description, onAddToCart }) {
   return (
     <div className="product-card">
-      <img src={image} alt={name} />
-
-      <h2>{name}</h2>
-
-      <p>{description}</p>
+      <Link
+        to={`/products/${id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <img src={image} alt={name} />
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </Link>
 
       <h3>${price.toFixed(2)}</h3>
 
